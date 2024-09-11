@@ -1,7 +1,11 @@
-import { View, ScrollView } from "react-native";
-import { styles, cardStyles } from "../styles/Styles";
+import { View, FlatList, ActivityIndicator } from "react-native";
+import { styles } from "../styles/Styles";
 import { useEffect, useState } from "react";
-import { getCocktailsByName } from "../services/cocktailService";
+import {
+  getCocktailsByName,
+  getCocktailsByLetter,
+} from "../services/cocktailService";
+
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import useDebounce from "../hooks/useDebounce";
@@ -12,9 +16,10 @@ type Cocktail = {
   strDrinkThumb: string;
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
+  const [loading, setLoading] = useState(false);
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   // Función para manejar la búsqueda
@@ -22,35 +27,52 @@ const HomeScreen = () => {
     setSearchQuery(query);
   };
 
-  // useEffect para buscar cócteles cuando cambia el searchQuery
+  // useEffect para buscar cócteles cuando cambia el searchQuery o la página
   useEffect(() => {
     const fetchCocktails = async () => {
-      if (debouncedSearchQuery) {
-        try {
-          const drinks = await getCocktailsByName(debouncedSearchQuery);
-          if (drinks && drinks.length > 0) {
-            setCocktails(drinks);
-          } else {
-            console.log("No drinks found");
-            setCocktails([]);
-          }
-        } catch (error) {
-          console.log("Error fetching drinks", error);
+      setLoading(true);
+      try {
+        if (debouncedSearchQuery.length === 1) {
+          const data = await getCocktailsByLetter(debouncedSearchQuery);
+          setCocktails(data || []);
+          return;
         }
+        const data = await getCocktailsByName(debouncedSearchQuery);
+        setCocktails(data || []);
+      } catch (error) {
+        console.error("Error fetching cocktails", error);
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchCocktails();
   }, [debouncedSearchQuery]);
 
   return (
     <View style={styles.container}>
       <SearchBar onSearch={handleSearch} />
-      <ScrollView contentContainerStyle={cardStyles.cardContainer}>
-        {cocktails.map((cocktail) => (
-          <Card key={cocktail.idDrink} cocktail={cocktail} />
-        ))}
-      </ScrollView>
+      <FlatList
+        data={cocktails}
+        keyExtractor={(item) => item.idDrink}
+        renderItem={({ item }) => (
+          <Card
+            cocktail={item}
+            onPress={() => navigation.navigate("Detail", { cocktail: item })}
+            isPreview={true}
+          />
+        )}
+        ListFooterComponent={
+          loading ? (
+            <ActivityIndicator
+              size="large"
+              color="#fff"
+              style={{ marginTop: 10 }}
+            />
+          ) : null
+        }
+        numColumns={2}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
+      />
     </View>
   );
 };

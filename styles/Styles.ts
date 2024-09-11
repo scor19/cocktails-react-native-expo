@@ -23,51 +23,111 @@ export const styles = StyleSheet.create({
 
 export const searchBarStyles = StyleSheet.create({
   searchBarContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 60, // Define una altura específica
-    marginBottom: 20, // O cualquier margen que desees
-  },
-  searchBar: {
-    width: "80%",
-    backgroundColor: "#303c70",
     padding: 10,
-    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  inputWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    margin: 10,
-    color: "white",
+    backgroundColor: "#fff",
+    borderRadius: 25,
+    paddingLeft: 10, // Espacio para el icono
+    paddingRight: 10,
+    width: "100%",
+  },
+  searchIcon: {
+    position: "absolute",
+    left: 10, // Ajustar según el diseño
+    zIndex: 1,
+  },
+  searchBar: {
+    flex: 1,
+    height: 40,
+    paddingLeft: 40, // Espacio para el icono dentro del TextInput
+    color: "#000",
   },
 });
 
 export const cardStyles = StyleSheet.create({
   cardContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    alignItems: "center",
+    flexGrow: 1,
     width: "100%",
   },
-  card: {
-    height: 150,
-    width: "45%",
+  cardBackground: {
     backgroundColor: "#303c70",
+    height: "auto",
+    width: "60%",
+    margin: 5,
+    borderWidth: 1,
+    borderColor: "white",
+    elevation: 5,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  card: {
+    height: "auto",
+    width: "45%",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
     margin: 5,
   },
   image: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
+    height: 130,
+    width: 130,
+    borderRadius: 65,
+    alignSelf: "center",
+    borderWidth: 1,
+    borderColor: "white",
+    margin: 10,
+    resizeMode: "cover",
+    overflow: "hidden",
+    zIndex: 1,
   },
   textName: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
-    marginTop: 5,
+    marginBottom: 10,
   },
+});
+
+export const detailStyles = StyleSheet.create({
+  detailContainer: {
+    flex: 1,
+    backgroundColor: "#11141f",
+    alignItems: "center",
+    padding: 20,
+  },
+  image: {
+    height: 300,
+    width: 300,
+    borderRadius: 50,
+    alignSelf: "center",
+    borderWidth: 1,
+    borderColor: "white",
+    margin: 10,
+    resizeMode: "cover",
+    overflow: "hidden",
+  },
+  textName: {
+    fontSize: 40,
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+  },
+  
 });
