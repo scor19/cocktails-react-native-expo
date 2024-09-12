@@ -27,25 +27,26 @@ export const searchBarStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    marginBottom: 15,
   },
   inputWrapper: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 25,
-    paddingLeft: 10, // Espacio para el icono
+    paddingLeft: 10,
     paddingRight: 10,
     width: "100%",
   },
   searchIcon: {
     position: "absolute",
-    left: 10, // Ajustar según el diseño
+    left: 10,
     zIndex: 1,
   },
   searchBar: {
     flex: 1,
     height: 40,
-    paddingLeft: 40, // Espacio para el icono dentro del TextInput
+    paddingLeft: 40,
     color: "#000",
   },
 });
@@ -56,9 +57,9 @@ export const cardStyles = StyleSheet.create({
     width: "100%",
   },
   cardBackground: {
-    backgroundColor: "#303c70",
+    backgroundColor: "#fff",
     height: "auto",
-    width: "60%",
+    width: "65%",
     margin: 5,
     borderWidth: 1,
     borderColor: "white",
@@ -80,9 +81,9 @@ export const cardStyles = StyleSheet.create({
     margin: 5,
   },
   image: {
-    height: 130,
-    width: 130,
-    borderRadius: 65,
+    height: 140,
+    width: 140,
+    borderRadius: 70,
     alignSelf: "center",
     borderWidth: 1,
     borderColor: "white",
@@ -94,7 +95,7 @@ export const cardStyles = StyleSheet.create({
   textName: {
     fontSize: 15,
     fontWeight: "bold",
-    color: "white",
+    color: "black",
     textAlign: "center",
     marginBottom: 10,
   },
@@ -129,5 +130,44 @@ export const detailStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
   },
-  
+});
+
+export const modalStyles = StyleSheet.create({
+  modalBackground: {
+    flex: 1,
+    paddingTop: "15%",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Fondo semitransparente
+  },
+  modalContent: {
+    width: "80%",
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  modalButtons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
+    margin: 10,
+    padding: 10,
+  },
+  modalButton: {
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "gray",
+    minWidth: "30%",
+    minHeight: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 10, // Agrega padding vertical
+    paddingHorizontal: 5, // Agrega padding horizontal
+    marginHorizontal: 5, // Espacio horizontal entre botones
+  },
+  modalButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "black",
+  },
 });
