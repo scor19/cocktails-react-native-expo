@@ -1,21 +1,18 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
+import BottomTab from "../navigation/BottomTab";
 
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
   return (
-    <SafeAreaProvider>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="BottomTabs"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="BottomTabs" component={BottomTab} />
         <Stack.Screen name="Detail" component={DetailScreen} />
       </Stack.Navigator>
-    </SafeAreaProvider>
   );
 };
 

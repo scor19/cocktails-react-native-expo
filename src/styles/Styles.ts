@@ -1,9 +1,20 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 export const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+    backgroundColor: "#11141f",
+  },
   container: {
     flex: 1,
     backgroundColor: "#11141f",
+    alignItems: "center",
+  },
+  scrollContainer: {
+    width: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
     padding: 20,
   },
@@ -19,14 +30,31 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
   },
+  favouritesHeader: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "90%",
+    padding: 8,
+    backgroundColor: "white",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    marginBottom: 20,
+  },
+  favouritesText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
 });
 
 export const searchBarStyles = StyleSheet.create({
   searchBarContainer: {
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 15,
   },
   inputWrapper: {
@@ -106,7 +134,14 @@ export const detailStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#11141f",
     alignItems: "center",
-    padding: 20,
+  },
+  titleContainer: {
+    width: "100%",
+    alignItems: "center",
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "white",
+    paddingVertical: 10,
   },
   image: {
     height: 300,
@@ -115,21 +150,89 @@ export const detailStyles = StyleSheet.create({
     alignSelf: "center",
     borderWidth: 1,
     borderColor: "white",
-    margin: 10,
     resizeMode: "cover",
     overflow: "hidden",
+  },
+  imageContainer: {
+    marginTop: 20,
+    marginBottom: 25,
+    alignItems: "center",
+  },
+  favButton: {
+    color: "white",
+    backgroundColor: "white",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderWidth: 1,
+    borderColor: "white",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    alignItems: "center",
+  },
+  favButtonText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 16,
   },
   textName: {
     fontSize: 40,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "white",
+    minWidth: "100%",
+    marginTop: 20,
   },
   text: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     color: "white",
   },
+  instructionsContainer: {
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor: "#1E1F28",
+    padding: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "white",
+    minWidth: "100%",
+  },
+  desplegableRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    height: "auto",
+  },
+  desplegable: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    height: "auto",
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 10,
+    padding: 10,
+    backgroundColor: "tomato",
+  },
+  desplegableItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    minWidth: "100%",
+    height: "auto",
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 10,
+    justifyContent: "space-between",
+    marginTop: 10,
+    backgroundColor: "#1E1F28",
+  },
+  typesContainer: {},
 });
 
 export const modalStyles = StyleSheet.create({
@@ -161,9 +264,9 @@ export const modalStyles = StyleSheet.create({
     minHeight: 40,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 10, // Agrega padding vertical
-    paddingHorizontal: 5, // Agrega padding horizontal
-    marginHorizontal: 5, // Espacio horizontal entre botones
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    marginHorizontal: 5,
   },
   modalButtonText: {
     fontSize: 16,

@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { cardStyles } from "../styles/Styles";
 
-const Card = ({ cocktail, onPress, isPreview }: any) => {
+const Card = React.memo(({ cocktail, onPress, isPreview }: any) => {
   return (
     <TouchableOpacity onPress={onPress} style={cardStyles.card}>
       <View style={cardStyles.cardBackground}>
@@ -18,6 +18,6 @@ const Card = ({ cocktail, onPress, isPreview }: any) => {
       </View>
     </TouchableOpacity>
   );
-};
+});
 
 export default Card;

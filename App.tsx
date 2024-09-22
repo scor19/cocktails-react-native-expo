@@ -1,14 +1,23 @@
 import "./gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeStack from "./routes/HomeStack";
+import HomeStack from "./src/routes/HomeStack";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { styles } from "./src/styles/Styles";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { FavouritesProvider } from "./src/contexts/favsContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar style="light" />
-      <HomeStack />
-    </NavigationContainer>
+    <SafeAreaProvider style={styles.safeContainer}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <StatusBar style="light" />
+          <FavouritesProvider>
+          <HomeStack />
+          </FavouritesProvider>
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }

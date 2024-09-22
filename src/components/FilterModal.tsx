@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import { modalStyles } from "../styles/Styles";
-import Ionicons from "@expo/vector-icons/build/Ionicons";
 
 type FilterModalProps = {
   visible: boolean;
@@ -46,7 +45,7 @@ const FilterModal: React.FC<FilterModalProps> = ({
                     style={{
                       ...modalStyles.modalButton,
                       backgroundColor:
-                        selectedFilter === filter ? "#4b85e3" : "white", // Cambia el color de fondo
+                        selectedFilter === filter ? "tomato" : "white", // Cambia el color de fondo
                     }}
                     onPress={() => handleFilterPress(filter)}
                   >
