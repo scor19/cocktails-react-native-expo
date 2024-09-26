@@ -88,7 +88,7 @@ const HomeScreen = ({ navigation, route }: any) => {
             color="tomato"
             style={{ marginRight: 10 }}
           />
-          <Text style={styles.favouritesText}>Favourite Cocktails</Text>
+          <Text style={styles.favouritesText}>Favourites</Text>
           <Ionicons
             name="heart"
             size={30}
